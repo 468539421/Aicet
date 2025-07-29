@@ -1,0 +1,122 @@
+        <!-- 边框border 后方要设置solid实线可以更直观一点
+                   引入图片 image;url 
+                   平铺方式 repeat on-repeat   -x  -y
+                   位置  像素，百分比，特殊字 position  left right center bottom top   xxpx  xxpx  
+                   设置背景图片大小 size: 100%   xxpx auto  单图片铺满盒子cover  完整再盒子中显示contain
+                   背景颜色  background color
+                   背景附件 background-attachment：  fixed 固定背景图不随内容滚动而滚动 
+                                                    scroll 跟着滚动而滚动 
+                   复合属性  background：color url（） center  scroll      
+
+                  -->
+     <style>
+         .nver{   
+            border: 1px solid #ccc;
+            background-image: url("./练习网页img/2023-10-14\ 11.29.14.jpg");
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: ;
+            background-color: papayawhip;
+            background-attachment: fixed;
+              }
+
+                /* 精灵图，将小图标整合到一张图片上           */
+         .jinglingtu{
+            background-image: url(./图库/8d1bff49841d2a8ada7f9bfceb40598.png);
+            border: 1px solid #ccc;
+            background-position: -253px -3px;
+            width: 49px; height: 49px;
+         }     
+         
+         .liebiao{ list-style-type: circle;}
+
+         /*   这是设置盒子的边框    solid实线  dashed虚线   dotted点线*/
+        div{
+            border-bottom: 20px solid transparent;
+            border-top: 20px  solid  palevioletred;
+            border-right: 20px solid transparent;
+            border-left:  20px  solid navy;
+         
+        }
+        /*  边框阴影设置  顺序为 水平偏移量 垂直偏移量 模糊半径  扩散半径  颜色（任意位置）  阴影方向 inset(向内) 默认向外 */
+        .div2{
+            border-bottom: 20px solid red;
+            border-top: 20px  solid  palevioletred;
+            border-right: 20px solid purple;
+            border-left:none;
+            width: 0;
+            height: 0;
+            box-shadow: 0 0 5px orange ;
+               /* padding: 20px 30px 40px 50px;      内容与边框的距离 上 右 下 左  上下 左右   */
+               /* margin: 0 auto;   水平居中可以设置宽度的元素
+                   border-radius    设置边框圆角  取值 百分比  以顺时针 四个值 */
+        }
+
+
+
+                /*  margin  相邻盒子  上下会取最大值  而左右是相加的 
+                 
+            margin  两个盒子嵌套，第一个子元素的设置会作用到父元素上
+            解决：1.给父元素设置  上内边距padding
+                  2.给父元素一个边框   border
+                  3.设置overflow ：hidden*/
+
+                  /* 标准盒模型              conent-box                大小计算     width+padding+border
+                     怪异盒模型  box—sizing：border-box 规定大小后（width） 设置边框边距后相减         */
+        .a{ width: 150px; height: 150px;
+            background-color: aquamarine;
+            border: 3px solid red;
+            margin-bottom: 50px;
+            float: left;
+        }
+
+        .b{ width: 100px; height: 100px;
+            background-color: palevioletred;
+            border: 3px solid red;
+            margin-top: 60px;
+            float: left;
+        }
+
+        
+       /* 空格和换行字符会被浏览器渲染为空格
+       解决方法    删除空格换行符
+                  font size=0  设置字体大小，最外层设置为0（父元素）    里面字体（子元素） 大小设置为所需的大小
+                  利用letter-spacing 字母间距  word-spacing 单词间距 设置负数 */
+    
+       .box1{ display: block;}
+       .box2{ display: none;}
+       .box3{ display: none;}
+       .box1:hover .box2{  display: block;}
+       .box2:hover .box3{  display: block;}
+
+         
+     </style>
+   
+</head>
+<body>
+              这是背景显示   
+    <div class="nver"  style="width: 300px; height: 300px;">
+        <div style="margin-bottom: 100px;">开始</div>
+    </div>  
+               <!-- 这是精灵图应用 -->
+    <div class="jinglingtu "  style="display:inline-block"></div>
+    <span> 正品保障正品保障，提供发票</span>
+
+
+  <div class="box1"><span >一个缩写</span>
+    <div class="box2"
+      class="div2" style="width: 30px; height: 30px;">
+    <div  class="box3" 
+    class="div2" class="padding"> </div>
+    </div>
+ </div>
+
+
+
+    <iframe src="./练习网页img/wallpaper_201902_a_(1920x1080).jpg" name="aaa"
+                  width="300px " height="300px" frameborder="0">
+    </iframe>
+    <p><a href="https://www.bilibili.com/" target="aaa"> 神秘小链接</a> </p>
+   
+    <div class="a"></div>
+    <div class="b"></div>
