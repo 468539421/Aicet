@@ -1,0 +1,81 @@
+   <style>
+       .box1{  background-color: aqua;
+                width: 100px; height: 100px;
+                position: static;}
+       .box2{  background-color: rgb(114, 155, 90);
+                width: 100px; height: 100px;
+                position: relative
+                left：50px;}
+       .box3{  background-color: rgb(148, 107, 61);
+                width: 300px; height: 300px;
+                position: absolute;
+                left: 0px;
+                top: 0px;}  
+
+       .box4 div{width: 200px;height: 200px; position: relative;
+                  float: right;}   
+       .box4 div img{ position: absolute; 
+                       left: 20px;
+                        top: 20px;}         
+                           /*   */
+    
+    </style>
+</head>
+<body>                
+         <!-- z-index: 0（默认）    元素的层级 ，需要搭配定位使用-->
+    <!-- static 静态定位（默认值） 不开启定位
+     
+         relative 相对定位 （设置left多少 right top bottom
+                            边距依照参照物移动 数值±
+                            仍然占位置（原来位置） 开定位的层级高于没定位的
+                            参考元素之前的所在为位置进行定位）  
+
+          absolute 绝对定位  不占位
+                             会提升元素层级，也可用z——index来调节层级
+                             搭配方向词使用
+                             默认html/body定位  可以换参考元素，在其父元素开启定位
+
+          fixed 固定定位      不占位
+                             参考浏览器窗口  -->
+
+     <!-- transform  变换  （移动自身）
+             缩放
+             平移 translate（X/Y） -->
+                             
+    <div class="box1"><img src="./练习网页img/icon3.png" alt=""></div>
+    <div class="box2"></div>
+    <div class="box3"> <img src="./练习网页img/icon3.png" ></div>
+    <div class="box4">
+        <div>个日哦撒到赛欧啥
+            <img src="./练习网页img/ddc8aba0-d777-11ee-82f6-373373912826.webp">
+        </div>
+        <div>撒大事发生上方
+            <img src="./练习网页img/ddc8aba0-d777-11ee-82f6-373373912826.webp" alt="">
+        </div>
+    <!--       弹性盒子     不再需要使用float 自己就是在一行显示的盒子
+                容器 设置display flex 的盒子
+                项目  容器里面的所有子元素  
+
+                弹性盒子默认不换行  换行使用   flex-warp 
+                                             warp 换行
+                                            no-warp 不换行
+         应用属性  jestify-content  flex—end 右对齐
+                                    flex-start （默认）左对齐
+                                    center  居中
+                                    space-between  两端对齐
+                                    space-around 元素两边间距相同
+                   align-items       center 垂直居中                 -->
+
+    <!--     项      目         属       性      -->
+ <!--  分配剩余空间     flex-grow：1（分配）   0（默认不分配）
+                       具体数值 把剩余空间分配为几份     
+                       
+                       flex-shrink  属性总宽度不足时元素是否进行收缩
+                         0 不收缩    1 进行收缩
+                         
+                         
+                        flex-basis 基准值 
+                        
+                        flex 1    1 2 3     分配空间布局-->
+  
+    </div>
