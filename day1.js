@@ -8,84 +8,12 @@
 // 外联方式：
 <script type="text/javascript" src="hello.js"></script>
 
-*/
-
-// 注意：
-// 1、script标签的type属性可以不设置，因为默认就是为text/javascript。
-// 2、script标签中的内容为js代码，如果指定了src属性，那么万万不能在script标签中编写js代码，因为浏览器会加载src属性对应的文件内容到script内容中。
-
-//三种输出方式
-// 1、在控制台中输出
-// console.log(90);
-// console.log("今天天气不错！");
-
-// 2、在网页中输出
-// document.write("js");
-
-// 3、弹窗输出
-// alert("今天正式开始学习js");
-
-
-// 输入方式
-// prompt("请输入您的密码：");
-
-
-// 定义变量
-// var、let
-// 区别：1、var可以重复定义声明变量，let不可以
-// 2、作用域提升问题：var可以进行先使用后定义；let不可以
-
-// var password = 123456;
-// var pass = prompt("请输入您的密码：");
-// var password = 789;
-// console.log(password);
-
-// let sname = "张三";
-// let sname = '李四';
-
-// console.log(age);
-// // var age = 18;
-// let age = 18;
-
-
-// 定义常量：
-// const price = 3;
-// price = 4;
-// console.log(price);
-
-// 变量命名规则：
-// 可以由任意顺序的大小写字母、数字、下划线(_)和美元符号($)组成，但标识符不能以数字开头，不能是JavaScript中的保留字或关键字。 
-
-// 变量命名规范：
-// 1.分隔命名法
-// 使用下划线（_）作为单词间隔，如： user_name、user_age等
-
-// 2.驼峰命名法：大驼峰、小驼峰
-// 使用单词首字母大小写进行间隔，如：UserName 、 userAge等
-
-
-// 注释：
-// 单行注释：//
-// 多行注释：/* */
-/**
- * 和换个角色将建设规划
- * 的手感还是
- */
-
-
 
 // 数据类型：
 // 1、基本数据类型：数值型、字符串、布尔值、undefined、null
 // 2、引用数据类型:Object
 
 
-// 字符串：
-// 创建字符串：
-// 1、字面量：''   ""  ``
-// let str = '字符串';
-// let str = "字符串1";
-// let str = `字符串2`;
-// console.log(str);
 
 
 // 转义字符：
@@ -194,64 +122,6 @@
 // console.log(str1.length);  
 
 
-
-// 算数运算符
-//+:可以做数值运算，还可以进行字符串拼接（字符串可以与任意数据进行拼接）
-// let num1 = 10;
-// let num2 = 5;
-// console.log(num1 + num2);
-// console.log("我叫" + 123);
-
-// //-：可以做数值运算;还可以进行数据类型的自动转换后做数值运算
-// console.log(num1 - num2);
-// console.log(15 - "10");
-
-// //*:可以做数值运算;还可以进行数据类型的自动转换后做数值运算
-// console.log(num1 * true);
-
-// // /:可以做数值运算;还可以进行数据类型的自动转换后做数值运算
-// console.log(num1 / true);
-
-// // %:使用场景：比如求奇偶性、求一个数是否可以被另一个数整除、因子/因数
-// console.log(num2 % num1);
-
-
-
-// ++、--：
-// 前置++：
-// let num = 10;
-// ++num;  //num进行自增1
-
-// 后置++：
-// num++;  //num进行自增1
-// console.log(num)
-
-// 不同点：
-// let result = ++num;  //11:先将num进行+1，再赋值给result
-// let result = num++;  //10：直接将num的值先赋给result,然后在进行+1
-// console.log(result,num);
-
-
-
-// 比较运算符：
-// > >=
-// let num1 = 10,num2 = 5;
-// console.log(num1 >= num2);
-
-// <  <=
-// console.log(num1 <= num2);
-
-// 相等比较：==  ===（全等）
-// ==:对比值即可
-// ===：需要对比数值以及数据类型
-// console.log(5 == "5");
-// console.log(5 === "5");
-
-// 不等比较：!=  !==(不全等)
-// console.log(5 !== 5);
-
-
-
 // 逻辑运算符：
 // 逻辑与：&& 两者(两者以上）都为真时，则返回真；有一者为假则返回假
 // console.log(7 > 8 && 9 > 8 && 10 > 9);
@@ -270,8 +140,4 @@
 // 逻辑或：如果出现真值，则返回第一个为真的值；如果全部为假，则返回最后一个值
 // console.log(undefined || '' || 0 || null);
 
-
-// 赋值运算符:=
-let num1 = 7;
-console.log(num1 = 8);
 
