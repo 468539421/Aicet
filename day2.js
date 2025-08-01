@@ -1,25 +1,3 @@
-// 赋值运算符:=
-// let num1 = 7;
-// console.log(num1 = 8);
-
-// 复合赋值运算符：
-// let num = 10;
-// num += 5;  //等价于num = num + 5;
-// console.log(num);
-
-// num -= 10;
-// console.log(num);
-
-// num *= 2;
-// console.log(num);
-
-// num /= 5;
-// console.log(num);
-
-// num %= 1;
-// console.log(num);
-
-
 
 // 条件运算符（三目运算符）：
 // 语法：
@@ -35,46 +13,6 @@
 // money >= 5 ? (money == 5 ? console.log("吃豆浆油条") : console.log("小笼包")) : console.log("无法吃早餐");
 
 
-// 语句：
-// if语句：
-// 单分支：
-//  if(表达式){
-//           语句块；
-//     }
-
-
-// 示例：
-// 输入年龄，判断年龄>18，输出“可以上网”
-// 提示：输入语句是prompt('请输入年龄')
-// let age = Number(prompt("请输入您的年龄"));
-// console.log(typeof age);
-// if(age > 18){
-//     console.log("可以上网");
-// }
-
-
-// 输入成绩，判断是否等于100，成立输出“满分”
-
-
-// 双分支：
-//   if(表达式){
-//            语句块1；
-//   }else{
-//            语句块2；
-//   }
-
-
-// 示例：
-// 输入成绩，判断是否等于100，成立输出“满分”，否则输出“加油”
-
-// let score = Number(prompt("请输入成绩："));
-// if(score == 100){
-//     console.log("满分");
-// }else{
-//     console.log("加油");
-// }
-
-
 
 // 多分支
 // if(表达式1){
@@ -86,43 +24,7 @@
 // }
 
 
-// 示例：
-// 输入一个数，判断是正数还是负数
-// let num = Number(prompt("请输入一个数："));
-// if(num > 0){
-//     console.log("正数");
-// }else if(num < 0){
-//     console.log("负数");
-// }else{
-//     console.log("0既不是正数也不是负数");
-// }
 
-
-// 输入两个数，判断两个数的关系（大于、小于或等于）
-// let num1 = Number(prompt("请输入一个数："));
-// let num2 = Number(prompt("请输入一个数："));
-// if(num1 > num2){
-//     console.log(num1 + '较大');
-// }else if(num1 == num2){
-//     console.log('相等');
-// }else{
-//     console.log(num2 + "较大");
-// }
-
-
-
-
-// 输入操作数、运算符，实现简易计算器
-// let num1 = Number(prompt("请输入第一个数："));
-// let operator = prompt("请输入操作符：");
-// let num2 = Number(prompt("请输入第二个数："));
-// if(operator == "+"){
-//     console.log(num1 + num2);
-// }else if(operator == '-'){
-//     console.log(num1 - num2);
-// }else if(operator == "*"){
-//     console.log(num1 * num2);
-// }
 
 
 // switch语句
@@ -139,61 +41,6 @@
 //        break;
 // }
 
-
-// switch(operator){
-//     case "+":
-//         console.log(num1 + num2);
-//         break;
-//     default:
-//         console.log("你所输入的运算符有误！");
-//     case "-":
-//         console.log(num1 - num2);
-//         break;
-//     case "*":
-//         console.log(num1 * num2);
-//         break;
-
-// }
-
-
-
-// 判断day是星期几
-// let day = Number(prompt("请输入1-7"));
-// switch(day){
-//     case 1:
-//         console.log("星期一");
-//         break;
-//     case 2:
-//         console.log("星期二");
-//         break;
-//     case 3:
-//         console.log("星期三");
-//         break;
-//     default:
-//         console.log('输入的值不合法');
-//         break;
-// }
-
-
-// 输入月份判断季节
-// 春：3、4、5月
-// 夏：6、7、8月
-// 秋：9、10、11月
-// 冬：12、1、2月
-
-// let month = Number(prompt("请输入月份："));
-// switch(month){
-//     case 3:
-//     case 4:
-//     case 5:
-//         console.log("春季");
-//         break;
-//     case 6:
-//     case 7:
-//     case 8:
-//         console.log("夏季");
-//         break;
-// }
 
 
 
