@@ -1,0 +1,75 @@
+// 函数
+// 语法：
+// function 函数名称(参数){
+//     函数体;
+// }
+
+// 函数调用：
+// 函数名称(参数);
+
+
+// 函数表达式（匿名函数）：
+// let 变量名 = function(参数){
+//     函数体;
+// }
+
+// 函数调用：
+// 变量名(参数);
+
+// str();  //先使用后进行定义声明
+
+// function str(){
+//     console.log("目标化信念");
+// }
+
+// let str = function(){
+//     console.log("目标话信念");
+// }
+
+
+// 箭头函数
+// 语法：
+// let 变量名 = (参数) => {函数体};
+
+// 无参数函数
+// let sayHello = () => {
+//     console.log("hello");
+// }
+
+// // 调用：
+// sayHello();
+
+// // 单参数函数：
+// let square = (x) => {
+//     console.log(x * x);
+// }
+
+// square(5);
+// square(6);
+
+
+// 封装一个函数，输出2019年到2030年之间所有的闰年。
+// function year(){
+//     for(let i = 2019;i <= 2030;i++){
+//         if(i % 4 == 0 && i % 100 != 0 || i % 400 == 0){
+//             console.log(i);
+//         }
+//     }
+// }
+
+// year();
+
+
+
+// 定义三个数，封装一个函数，输出三个数的最大值。
+// let a = 1,b = 2,c = 3;
+// function max(){
+//     if(a > b && a > c){
+//         console.log(a);
+//     }else if(b > a && b > c){
+//         console.log(b);
+//     }else if(c > a && c > b){
+//         console.log(c);
+//     }
+// }
+// max();
