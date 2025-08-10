@@ -213,3 +213,57 @@
 //     return b - a;
 // });
 // console.log(arr);
+
+// 高阶函数：
+
+// map():对于原数组中的数据进行指定操作后，返回给一个新的数组
+// let arr = [1,2,3,4,5];
+// let n_arr = arr.map(function(ele){
+//     return ele * 2;
+// });
+// console.log(n_arr);
+
+
+
+// 数据转换：把原数组中的所有元素转换为整数
+// let arr = ['123abc','456bcd','789qqq'];
+// let n_arr = arr.map(function(ele){
+//     return parseInt(ele);
+// });
+
+// console.log(n_arr);
+
+
+
+// filter:筛选、过滤原数组中符合条件的数据，返回一个新的数组
+// let arr = [1,2,3,4,5,6];
+// let n_arr = arr.filter(function(ele){
+//     return ele % 2 == 0;
+// });
+// console.log(n_arr);
+
+
+// 筛选出该数组中为数值型的数据
+// let arr = [true,12,34,56,'hello','你好'];
+// let n_arr = arr.filter(function(ele){
+//     return typeof ele == 'number';
+// });
+// console.log(n_arr);
+
+
+// 筛选出该数组中为有效数字的数据
+// let arr = [true,12,34,56,'hello','你好',NaN];
+// let n_arr = arr.filter(function(ele){
+//     return !isNaN(ele) && typeof ele == 'number';
+// });
+
+// console.log(n_arr);
+
+
+// let words = ['apple','banana','water melon','cherry'];
+// // 要求筛选出字符串长度大于五的值
+// let n_arr = words.filter(function(ele){
+//     return ele.length > 5;
+// });
+// console.log(n_arr);
+
