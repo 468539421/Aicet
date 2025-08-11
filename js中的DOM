@@ -1,0 +1,47 @@
+// 获取DOM中的元素节点
+// 方法	操作
+// 通过标签名获取	documemt.getElementsByTagName(元素名)
+// 通过类名获取	documemt.getElementsByClassName(类名)
+// 通过id获取	documemt.getElementById(id名)
+// 通过name属性获取	documemt.getElementsByName(name名)
+// 获取单个元素	document.querySelector('标签名/.类名/#id名')  
+// 获取多个元素	document.querySelectorAll('标签名/.类名') 
+// 获取特殊元素	document.body、document.documentElement
+
+
+
+// 通过标签名获取	documemt.getElementsByTagName(元素名)
+// 获取p元素
+// 如果想进行获取指定的P标签，需要通过索引进行获取
+// let p = document.getElementsByTagName('p');
+// console.log(p[0]);
+
+
+// 通过类名获取	documemt.getElementsByClassName(类名)
+// 获取class为box的元素
+// 如果想进行获取指定的标签，需要通过索引进行获取
+// let box = document.getElementsByClassName('box');
+// console.log(box);
+
+
+// 通过id获取	documemt.getElementById(id名)
+            // <p id="text">这有一段文字</p>
+// let text = document.getElementById('text');
+// console.log(text);
+
+
+// 通过name属性获取	documemt.getElementsByName(name名)
+// 如果想进行获取指定的标签，需要通过索引进行获取
+// let inp = document.getElementsByName('inp');
+// console.log(inp);
+
+
+// 通过选择器获取该选择器下的第一个元素	document.querySelector('标签名/.类名/#id名')  
+            // <p id="text">这有一段文字</p>
+// let p = document.querySelector('#text');
+// let box = document.querySelector('.box');
+// console.log(p,box);
+
+// 通过选择器获取该选择器下所有的元素	document.querySelectorAll('标签名/.类名') 
+// let divs = document.querySelectorAll('.box');
+// console.log(divs);
