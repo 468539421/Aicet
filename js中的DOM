@@ -45,3 +45,322 @@
 // 通过选择器获取该选择器下所有的元素	document.querySelectorAll('标签名/.类名') 
 // let divs = document.querySelectorAll('.box');
 // console.log(divs);
+
+
+// 获取特殊元素	document.body、document.documentElement
+
+
+
+// 文本信息
+// innerText/innerHTML
+// 1、获取元素中的文本信息
+//  <p id="text">这有一段文字</p>
+// let text = document.getElementById('text');
+// console.log(text.innerHTML);
+// console.log(text.innerText);
+
+
+// 2、设置文本信息
+// innerHTML:解析HTML标签
+// innerText:只能赋值纯文本
+// <p id="text">这有一段文字</p>
+// text.innerHTML = '今天星期二，马上第三周周考';
+// text.innerText = '今天有雨';
+
+// <div class="div"></div>
+// let div = document.querySelector('.div');
+// div.innerHTML = '<h1>今天</h1>';
+// div.innerText = '<h1>今天</h1>';
+
+
+// value:针对表单元素进行获取值或者设置值
+//<input type="text" name="inp" value="123"></input>
+// let inp = document.getElementsByName('inp');
+// console.log(inp[0].value);
+// inp[0].value = 890;
+
+
+
+
+// 元素样式的设置
+// style
+// 语法：
+// 获取元素样式
+// 元素对象.style.属性名
+
+// 设置元素样式
+// 元素对象.style.属性名 = '值'
+// 注意：如果设置浮动，属性名需要写成cssFloat
+
+/*
+<div class="div"></div>
+.div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+            */
+// let div = document.querySelector('.div');
+// div.style.backgroundColor = 'red';
+// div.style.border = '3px solid green';
+// console.log(div.style.width)
+
+
+
+
+
+
+// 事件基础
+// 事件是用户与计算机交互的行为。
+// 事件三要素：
+// 1、事件源：事件发生在谁身上
+// 2、事件类型：如何触碰事件源
+// 3、事件处理函数：执行的操作
+
+// 事件类型：
+// 鼠标事件：
+// onclick:鼠标单击事件
+// ondblclick:鼠标双击事件
+// onmouseover:移入事件
+// onmouseout:移除事件
+// onmousemove:移动事件
+
+// 键盘事件：
+// onkeydown:按键按下去未抬起时
+// onkeyup:按键抬起
+
+// 事件中的this
+// 1 在元素对象中定义事件对应的使用方式
+//<div class="div" style="width: 500px;"></div>
+// 针对于这个div设置点击事件,要求将height改为300px
+// let div = document.querySelector('.div');
+// div.onclick = function(){
+//     this.style.height = '300px';
+// }
+
+
+// 2 在标签中直接定义事件的使用方式
+// 使用this传递实参
+//<p id="text" ondblclick="fun()">这有一段文字</p>
+// function fun(obj){
+//     obj.style.background = 'red';
+// }
+
+
+//<div class="div"></div>
+// 点击这个div,将该元素进行隐藏
+// function f(obj){
+//     obj.style.display = 'none';
+// }
+
+
+
+// 获取/设置元素中的固有属性
+// src\href\type\id...
+// 表单中的一些特殊属性:checked  selected  disabled
+// 获取的语法:
+// 元素对象.属性名
+
+//<img src="img/1.jpg" alt="">
+// 获取图片路径,并进行更换
+// 获取图片信息
+// let img = document.querySelector('img');
+// console.log(img.src);
+// img.src = 'img/2.jpg';
+
+
+//<input type="password" name="" id="pass"></input>
+// 获取该元素
+// let inp = document.querySelector('#pass');
+// inp.type = 'text';
+
+
+// 将该元素设置默认被选中
+//<input type="checkbox" name="" id="che"></input>
+// let che = document.querySelector('#che');
+// che.checked = false;
+
+
+
+
+// 自定义属性
+// (1)使用data-开头的属性进行在标签中定义
+
+// (2)使用setAttribute方法设置自定义属性
+// 语法:元素对象.setAttribute('属性名','属性值')
+//<button data-a="3">按钮</button>
+// let but = document.querySelector('button');
+// but.setAttribute('aaa','bbb');
+// console.log(but);
+
+
+// 获取自定义属性
+// 语法:元素对象.getAttribute('属性名')
+// let but = document.querySelector('button');
+// console.log(but.getAttribute('data-a'));
+
+
+// 移除自定义属性
+// 语法:元素对象.removeAttribute('属性名');
+// let but = document.querySelector('button');
+// but.removeAttribute('data-a');
+// console.log(but);
+
+
+
+// 针对于class样式的设置
+// className:新设置的class会将原有的class样式覆盖掉
+// 语法:元素对象.className = '类名';
+
+//<div class="box">针对这个div添加prar的class样式
+// let box = document.querySelector('.box');
+// box.className = 'prar';
+
+
+// classList:可以设置多个class样式,追加class样式,不会将原有的样式覆盖
+// 语法:元素对象.classList.add('类名','类名'...);
+// let box = document.querySelector('.box');
+// box.classList.add('prar','bbb');
+
+// 移除class样式:
+// 语法:元素对象.classList.remove('类名');
+// box.classList.remove('prar');
+
+/ W3C标准方法注册事件（事件监听）
+// 语法：元素对象.addEventListener('事件类型', function() {
+    
+// })
+// 事件类型：全部取消on前缀
+
+// 点击body,将网页的背景颜色改为粉色
+// document.addEventListener('click',function(){
+//     document.body.style.background = 'pink';
+//     console.log(111);
+// })
+
+
+// 要求点击p标签进行将文本内容改为：月考开始了
+//<p>周考三终于结束了</p>
+// document.querySelector('p').addEventListener('click',function(){
+//     this.innerHTML = '月考开始了';
+// })
+
+
+// 传统与事件监听的区别
+/*
+<button>传统注册事件</button>
+    <button>监听方式注册事件</button>
+
+*/
+// let btns = document.querySelectorAll('button');
+// 使用传统注册事件方式注册事件
+// btns[0].onclick = function(){
+//     alert("第一次点击");
+// }
+
+// 后面的事件会覆盖掉前面的
+
+// btns[0].onclick = function(){
+//     alert("第二次点击");
+// }
+
+
+// 使用监听方式注册事件
+// btns[1].addEventListener('click',function(){
+//     alert("第一次点击");
+// })
+
+// btns[1].addEventListener('click',function(){
+//     alert("第二次点击");
+// })
+
+
+
+// 解绑事件
+// 传统注册事件
+// 语法：元素对象.解绑的事件类型 = null;
+// btns[0].onclick = null;
+
+// 监听方式解绑：
+// 语法：元素对象.removeEventListener(解绑的事件类型,事件处理函数名)
+
+// let btns = document.querySelectorAll('button');
+// btns[1].addEventListener('click',fun);
+// function fun(){
+//     alert("第一次点击");
+// }
+
+// btns[1].addEventListener('click',foo);
+// function foo(){
+//     alert("第二次点击");
+// }
+
+// btns[1].removeEventListener('click',fun);
+
+
+
+// 键盘事件：
+// onkeydown
+// onkeyup
+
+// 要求在第一个文本框中输入一串英文字母，
+// 在第二个文本框中将其全部转换为大写显示（使用键盘抬起事件）
+/*
+    第一个：<input type="text" name="" id=""><br>
+    第二个：<input type="text"></input>
+    */
+// let inps = document.querySelectorAll('input');
+// inps[0].addEventListener('keyup',function(){
+//     let val = inps[0].value.toUpperCase();
+//     inps[1].value = val;
+// })
+
+
+
+// 表单事件
+
+// onfocus:表单聚焦事件
+// onblur:表单失焦事件
+// onchange:表单中的内容发生改变时，触发的事件，多用于单选框/复选框/下拉菜单
+// onselect:选中单行文本框或者是多行文本框是，触发的事件
+
+// 获取表单元素
+// 1、通过表单名称：document.表单名称
+// console.log(document.myform);
+// 2、document.forms[表单名称]
+// 3、document.forms[索引]
+// console.log(document.forms['myform2']);
+// console.log(document.forms[0]);
+
+
+// 表单元素相关属性
+// value:表单元素对应的值
+// type:input 元素中的类型
+// checked:选中状态
+// selected:下拉菜单被选中的状态
+// selectedIndex:下拉菜单中被选中元素对应的索引
+// options：获取下拉菜单中所有的option项
+// disabled:禁用属性
+
+/*
+<form action="" name="myform">
+        请选择学生：<select name="sname">
+            <option value="719">张三</option>
+            <option value="720">李四</option>
+            <option value="721">王五</option>
+            <option value="722">赵六</option>
+            <option value="723">周五</option>
+        </select>
+
+        宿舍为：<input type="text" name="room">
+    </form>
+    */
+// 当我选择一个学生后，将其对应的宿舍号显示在文本框中
+
+// 获取下拉菜单
+let sel = document.myform.sname;
+sel.onchange = function() {
+    let val = sel.options[sel.selectedIndex].value;
+    document.myform.room.value = val;
+}
+
