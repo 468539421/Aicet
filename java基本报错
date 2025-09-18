@@ -1,0 +1,95 @@
+ /* 异常：程序运行时发生的不正常（出乎意料）的事件，它会打断指令的正常执行流程。
+        异常会导致如下的问题：
+            1.程序被迫中断
+            2.导致一些内存资源不能被及时释放（或收回）而导致内存泄漏！
+             常见的异常类
+            算术异常类	ArithmeticExecption
+            空指针异常类	NullPointerException
+            类型强制转换异常	ClassCastException
+            数组负下标异常	NegativeArrayException
+            数组下标越界异常	ArrayIndexOutOfBoundsException
+            违背安全原则异常	SecturityException
+            文件已结束异常	EOFException
+            文件未找到异常	FileNotFoundException
+            字符串转换为数字异常	NumberFormatException
+            操作数据库异常	SQLException
+            输入输出异常	IOException
+            方法未找到异常	NoSuchMethodException
+            抽象方法错误，当应用试图调用抽象方法时抛出	java.lang.AbstractMethodError
+
+            异常的分类：
+              基类 Throwable  子类有 Error 和Exception
+              Error     指错误     程序无法处理的严重性的不正常事件
+              Exception 异常      程序可以处理的非严重性的不正常事件
+
+
+              异常分为：
+                 检查型异常 ：在编译时检查并强制要求处理的异常，运行时也会发生
+                 非检查型异常（运行时异常）：在编译时不检查的异常，只有在运行时才会产生的异常
+
+        * */
+
+//        String [] arr = {"12","23","34",null};
+//        System.out.println(arr[4]);  运行时异常
+//        System.out.println(1*"2");   检查型异常
+//        System.out.println(arr[4]);   //  数组下标越界异常
+//        System.out.println(arr[0].charAt(0));
+//        System.out.println(arr[3].charAt(0)); // 空指针异常
+//        System.out.println(12345);
+//
+//        System.out.println();
+//
+
+//        Scanner input = new Scanner(System.in);
+//        int num = input.nextInt();
+//
+//        Integer.parseInt("sdfg");
+
+        /* 异常处理
+
+        关键词	   说明
+        try	    表示可能会发生异常代码块的关键字
+        catch	表示try代码块出现异常时，根据异常类型来捕获并处理异常的代码块的关键字
+        finally	是无论是否发生异常代码总会被执行
+        throws	方法中，声明可能要抛出的各种异常
+        throw	抛出异常的关键字
+        * try{
+        *    可能出现异常的代码
+        *   }catch(异常类型对象){
+        *     对异常的处理
+        *   }finally{
+        *    无论是否发生异常 都会执行的代码块
+        *   }
+        *
+        *
+        *
+        * e.printStackTrace();  打印异常信息
+          e.getMessage();  获取异常的说明信息 是printStackTrace的一部分 有返回值
+        * */
+
+        try{
+            String [] arr = {"1","2"};
+            System.out.println(arr[1]);
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("发生异常了");
+            e.printStackTrace();
+            System.out.println("msg"+ e.getMessage());
+
+        }finally {
+            System.out.println("我一定会被执行");
+        }
+
+        System.out.println("qwertyuio");
+
+        Test test = new Test();
+        test.show();
+        System.out.println(123456789);
+    }
+
+
+    public void show() throws Exception {
+        Scanner input = new Scanner(System.in);
+        try{
+            int num = input.nextInt();
+        }catch (Exception e){
+            throw new Exception("发生异常了");
