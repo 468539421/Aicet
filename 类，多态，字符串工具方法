@@ -1,0 +1,411 @@
+ /* 多态 ： 同一个操作 因作用对象（或参数）不同 而有不同表现形式的机制
+        * 分类：
+        *
+        *    编译时多态:   不同的表现形式在代码编译时即可确定具体的实现方式
+        *             (方法重载 本身就是编译时多态)
+        *    运行时多态:   不同的表现形式在运行时才能确定具体的实现方式
+        *             （父类引用指向子类对象）
+        *              缺点： 无法调用子类特有的方法   如果想调用 需要 向下转型
+        *
+        *  向上转型： 父类引用指向子类对象  (多态本身就行向上转型)  自动转换
+        *  向下转型： 将已经向上转型的子类对象再强制转换为子类的数据类型   （强制转换）  语法：  (子类类名)对象名
+        *
+        *
+        * instanceof 关键字   判断 左边对象是否是 右边类的实例对象
+        *     语法：  对象名 instanceof 类名   返回值是 布尔值
+         * */
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /* 使用interface修饰不能直接实例化的引用数据类型
+        * 接口 默认被 abstract 修饰
+        * 接口 可以看作把固定的方法封装起来 你想让哪个类拥有该接口中的方法
+        * 就让哪个类去实现该接口即可
+        *
+        * 接口特点
+        1.接口不能直接实例化:接口可以按照多态的方式，由具体的子类实例化，这也是多态的一种，接口多态。
+        2.接口实现类要么是抽象类，要么普通类但必须重写接口中的所有抽象方法。
+        3.接口采用关键字interface定义。
+        4.接口使用implements实现。
+        5.不能有构造方法
+        * 成员的特点
+        1.不能定义变量，可以定义常量，public static final可省略
+        2.接口中可以有抽象方法，public abstract可省略
+        3.接口中可以有静态和default修饰的其他的成员方法(jdk1.8之后)
+        4.没有构造方法，因为接口主要是扩展功能，不存在具体的实现
+        *
+        * 抽象类和接口的区别
+            不同点	   抽象类	   接口
+            英文	abstract class	  interface
+            构造	        有	      无
+            继承	       单继承	  多继承
+            作用	      作为宗族	  Can Do
+            耦合度	   高	      低
+            灵活性	   低	      高
+            封装	       属性	      方法
+            *
+            *
+            * 静态和default修饰的其他的成员方法 有方法体
+        * */
+
+        System.out.println(UseMouse.num);
+        Computer computer = new Computer();
+        computer.useMouse();
+        computer.useKeyboard();
+        computer.use("qwe");
+
+        // 调用接口的静态方法
+        UseKeyboard.write();
+        // 调用接口的默认方法
+       computer.happy();
+
+
+       /* 接口作数据类型
+       * 同样无法调用子类特有的方法  需要向下转型*/
+        UseKeyboard com = new Computer();
+        UseMouse com1 = new Computer();
+        com.happy();
+        com.useKeyboard();
+        ((Computer)com).useMouse();
+
+        com1.useMouse();
+
+
+
+        /* 接口多态*/
+        // 创建人类对象 和鱼对象
+        Swimming person = new Person("尹星皓");
+        Swimming fish = new Fish("鲨鱼");
+        // 创建管理员对象
+
+        Feeder feeder  = new Feeder();
+        feeder.doSwim(person);
+        feeder.doSwim(fish);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /* 函数式接口 ：  当前接口中 有且只有一个抽象方法需要被重写
+        *  lambda       (参数列表)->{ 方法体}
+        * 类中的 方法 参数列表中需要有一个函数式接口  可以改写成 lambda表达式
+        * 参数只有一个 ()可以省略 方法体如果只有一行代码  {} 省略
+         * */
+
+        Js js = new Js();
+        js.jsSum(3, 5, new Sum() {
+            @Override
+            public void sum(int a, int b) {
+                System.out.println(a+"和"+b+"的和是："+(a+b));
+            }
+        });
+
+        js.jsSum(4,5,(a,b)->{
+            System.out.println(a+"和"+b+"的和是："+(a+b));
+        });
+
+        /* 使用lambda表达式 书写 switch */
+        Scanner input = new Scanner(System.in);
+        while (true){
+            System.out.println("请输入0-6的数字");
+            int num = input.nextInt();
+            switch (num){
+                case 0 -> System.out.println("星期日");
+
+  /* 嵌套类 嵌套类是定义在另一个类、接口里的类
+          一个类中包含其它类就构成嵌套类，嵌套类的作用是：使多继承的解决方案变得完整
+          分类 静态嵌套类   只能写在成员位置
+              非静态嵌套类（内部类）  可以写在成员位置 喝代码块中
+          匿名内部类：  匿名内部类是直接使用接口或父类实例化对象时创建的没有名字的内部类
+          创建一个类 没有名字   {}
+           */
+        /*
+        * 如果满足下面的条件，建议使用匿名内部类：
+             A. 只用到类的一个实例
+             B. 类在定义后立即用到
+             C. 类非常小（4行代码以内）
+             D. 给类命名并不会使你的代码更容易理解
+        所谓匿名内部类，就是在类的某个方法中声明一个隐藏了名字的类，这个类只用一次，并且类的代码特别少。
+        使用匿名内部类时需要遵循的原则：
+             A.匿名内部类不能有构造方法,没有class关键字，没有类名
+             B.匿名内部类不能定义任何静态成员，方法和类
+             C.匿名内部类不能是pubic，protected，private，abstract和static修饰的
+             D.只能创建匿名内部类的一个实例
+             E.一个匿名内部类一定是在一个new的后面，用其实现一个接口或实现一个类。
+             F.匿名内部类是特殊的局部内部类，所以局部内部类的所有限制匿名内部类都有
+             * */
+
+        /*
+        * 内部类和静态嵌套类的区别
+            名称	            内部类(非静态嵌套类)	           静态嵌套类
+            定义位置	     外部类的成员位置、方法、代码块	  只能在外部类（或接口）的成员位置
+            组成	         实例成员、静态常量、构造方法	      实例成员、静态成员、静态代码块、构造方法
+            对象创建	     必须先有外部类的对象	          不依赖于外部类实例，可直接实例化
+            访问外部类	 可以直接访问外部类所有成员	       只能直接访问外部类的静态成员
+            * */
+
+
+        // 创建内部类的语法
+        // 创建内部类语法对象    外部类名.内部类名  对象名 = 外部类对象.new 内部类名();
+        // 创建静态嵌套类对象    外部类名.内部类名  对象名 = new 外部类名.内部类名();
+
+        // 创建Cat对象 成员内部类
+        // 1.创建外部类对象
+        Animal animal = new Animal();
+        //创建 Cat内部类对象
+        Animal.Cat cat = animal.new Cat();
+        cat.cat();
+
+        // 创建Ani对象 静态嵌套类类
+        Animal.Ani ani = new Animal.Ani();
+        ani.ani();
+
+
+        // 创建 局部内部类
+        animal.show();
+
+
+
+        // 通过匿名内部类 实例化接口对象
+        Eat eat = new Eat() {
+            public void eat() {
+                System.out.println("我是通过匿名内部类重写的eat方法");
+            }
+            public void drink(){
+                System.out.println("wert");
+            }
+        };
+        eat.eat();
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /* String  不可变字符序列
+        * String常用构造方法
+            //通过byte数组构造字符串对象。
+            public String(byte[ ] bytes)
+            //通过使用平台的默认字符集解码指定的 byte 子数组，构造一个新的 String。
+            public String(byte[] bytes, int offset, int length)
+            //通过char数组构造字符串对象。
+            public String(char[ ] value)
+            //构造一个original的副本。即：拷贝一个original。
+            public String(Sting original)
+            *
+            //通过StringBuffer数组构造字符串对象。
+            public String(StringBuffer buffer)：
+            *
+        *String类常用功能
+        *
+        * //判断内容是否相等,区分大小写,anObject:比较的内容
+            public boolean equals(Object anObject)
+            //判断内容是否相等，不区分大小写,anotherString:另一个字符串
+            public boolean equalsIgnoreCase(String anotherString)
+            //是否包含子字符串，s:子字符串
+            public boolean contains(CharSequence s)
+            //判断字符串长度是否为0
+            public boolean isEmpty()
+            //判断是否以该字符串为前缀，prefix：前缀字符串
+            public boolean startsWith(String prefix)
+            //判断是否以该字符串为后缀，suffix：后缀字符串
+            public boolean endsWith(String suffix)
+            //判断字符串与StringBuffer内容是否相同，sb：StringBuffer对象
+            public boolean contentEquals(StringBuffer sb)
+            *
+            *
+        * String类的常用功能-获取
+        *
+        *
+        * //获取字符串长度
+            public int length()
+            //获取指定索引对应的字符
+            public native char charAt(int index);
+            //判断int值对应的字符在该字符串中出现的位置
+            public int indexOf(int ch)
+            //判断子字符串在该字符串中出现的位置
+            public int indexOf(String str)
+            //截取字符串，beginIndex：开始位置的索引，endIndex：结束位置得索引
+            public String substring(int beginIndex, int gendIndex)
+            //将字符数组转换成字符串，可以从offset开始，取count个结束，offset：开始的索引，count：个数
+            public static String copyValueOf(char data[], int offset, int count)
+            *
+            *
+       * String类的常用功能-转换
+       * //转换为byte[]数组
+            public byte[] getBytes()
+            //转换成字符数组
+            public native char[] toCharArray()
+            //将基本数据类型转换成字符串，byte数组或char数组也可以，data[]：字符串数组，i:想要转成字符串的数字
+            public static String valueOf(char data[])
+            public static String valueOf(int i)
+            //转换成小写
+            public String toLowerCase()
+            //转换成大写
+            public String toUpperCase()
+            //拼接 ，str：被拼接的字符串
+            public native String concat(String str)
+     *String类的常用功能-其他
+     * //替换，oldChar:要被替换的子字符串，newChar：替换后的子字符串
+        public String replace(char oldChar, char newChar)
+
+        public String replaceAll(String oldChar, String newChar)
+        //去除首尾空格
+        public String trim()
+        //切割字符串，特殊符号切割需要加\\
+        public String [] split(String regex)
+        //对比两个字符串大小排序，返回值：大于0 前者大，后者小，等于0两者相等，小于0 前者小，后者大
+        //anotherString：要比较的字符串
+        public native int compareTo(String anotherString)
+       *
+       *
+       *
+       * StringBuffer，是用于表示可变字符序列，线程安全的类。
+       * //构造方法有很多，但是我们常用的为以下三个：
+            //无参构造方法
+            public StringBuffer()
+            //指定容量的字符串缓冲区对象(容器的大小)
+            public StringBuffer(int capacity)
+            //指定字符串内容的字符串缓冲区对象(字符串)
+            public StringBuffer(String str)
+            *
+            * capacity()获取当前容器大小
+            * 默认容器大小是16  如果传入容器大小 那么会使用传入大小
+            * 如果传入一个字符串 容器大小等于 16 + 字符串长度
+      *StringBuffer功能方法
+            方法名称	作 用
+            StringBuffer append(String s)	将指定的字符串追加到此字符序列
+            int length()	返回长度（字符数）
+            String substring(int start)	返回一个新的 String，它包含此字符序列当前所包含的字符子序列
+            String substring(int start, int end)	返回一个新的 String，它包含此序列当前所包含的字符子序列
+            String toString()	返回此序列中数据的字符串表示形式。如果没有显示调用，会默认自动调用
+            StringBuffer insert(int offset, Object obj)	在指定的位置插入一个对象
+    * 2.3.2 删除功能
+            //1.删除指定位置的字符，并返回本身
+            //参数：index 删除开始位置
+            public StringBuffer deleteCharAt(int index)
+            //2.删除从指定位置开始指定位置结束的内容，并返回本身
+            //参数1：start 删除开始位置
+            //参数2：end 删除结束位置
+            public StringBuffer delete(int start,int end) 包前不包后
+     *2.3.3 替换功能
+            //替换功能
+            //参数1：start 开始位置
+            //参数2：start 结束位置
+            //参数3：str 替换新的字符串
+            public StringBuffer replace(int start, int end, String str)
+       * //反转功能
+            public StringBuffer reverse()
+   * 2.3.5 截取功能
+        //1.截取第几个索引值之后的
+        //参数：start 开始位置
+        public String substring(int start)
+        //2.截取第几个索引和第几个索引之间的
+        //参数1：start 开始位置
+        //参数2：start 结束位置
+        public String substring(int start,int end)
+        *
+        *
+    *StringBuilder，是用于表示可变字符序列，线程不安全的类。方法跟StringBuffer 样)
+    *
+    *  String和StringBuffer和StringBuilder的区别
+        String	         StringBuffer	       StringBuilder
+        常量	                  变量	            变量
+        速度慢	          速度比String快	        速度比StringBuffer快
+        适合操作次数少	  适合操作次数多的，适合多线程	适合操作次数多的，适合单线程
+        /	                线程安全	               线程不安全
+    *
+        *
+       * */
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   /* 包装类 ： 包装类是为了值类型数据和对象间能互相转换、提供装箱和拆箱机制的类
+        *   自动拆箱为自动进行包装类向基本数据类型的转换。
+            自动装箱为自动进行基本数据类型向包装类的转换
+            * 基本数据类型	包装类型
+                byte	    Byte
+                short	    Short
+                int	        Integer
+                long	    Long
+                float	    Float
+                double	    Double
+                char	    Character
+                boolean	    Boolean
+              * */
+
+        /* 其他常用类
+        * Arrays
+        *    toString ()
+        *    sort() 只能升序
+        * Math
+        *    //绝对值
+            public static int abs(int a)
+
+            //最大值 (min自学)
+            public static int max(int a, int b)  只能传两个参数
+
+            //四舍五入(参数为double的自学)
+            public static int round(float a)
+
+            //a的b次幂
+            public static double pow(double a, double b)
+
+            //随机数 [0.0,1.0)
+            public static double random()
+
+            //向上取整
+            public static double ceil(double a)
+
+            //向下取整
+            public static double floor(double a)
+
+            //正平方根
+            public static double sqrt(double a)  正数
+        *
+        * Random 类
+        * Date 类
+        * 方法名称	作 用
+            getDate()	返回一个月中某一天
+            getMonth()	返回月份，值在0和11之间，0代表一月，11代表十二月
+            getYear()	返回距离1900年经过的年份
+            getHours()	回由当前时区解释的此日期所表示的小时数。 返回的值在0和23之间
+            getMinutes()	回由当前时区解释的此日期所表示的分钟数。 返回的值在0和59之间
+            getSeconds()	表示分钟已过去的秒数。 返回的值在0和61之间。 值61只有在考虑闰秒时出现
+        *
+        *SimpleDateFormat  格式化日期时间的
+        *  构造函数接收一个 格式化的字符串 比如 yyyyMMdd
+        *
+        * format(Date) // 将该日期对象 转换为指定格式的字符串
+        * parse(日期字符串) // 将当前字符串日期转换成 Date 日期
+        *  该字符串格式必须跟 创建SimpleDateFormat  传入的格式一致
+        *  */
+
+        // 字符串 朝数字类型转换
+//        String str = "1234";
+//        int num = Integer.parseInt(str);
+//        System.out.println(num);
+//
+//        String str2 = "12.34";
+//        double d = Double.parseDouble(str2);
+//        System.out.println(d);
+//
+//        // integer 和int之间转换 可以直接赋值即可
+//        Integer i = 23;
+//        int i2 = i;
+//        System.out.println(i.toString());
+//        System.out.println(i2);
+//
+//        char c = 'A';
+//        System.out.println(Character.isUpperCase(c));
+//
+//
+//        System.out.println(Math.random());
+//        //   0-20的随机整数
+//        System.out.println(Math.round(Math.random()*20));
+
+        // 求 指定范围的随机整数   30-50
+        // Math.round(Math.random()*(max-min)+min)
+//        for (int j = 0; j < 10; j++) {
+//            System.out.println(Math.round(Math.random()*(50-30)+30));
+//        }
+
+        // 使用Random 类 创建随机数
+        /*Random random = new Random();
+        for (int j = 0; j < 10; j++) {
+            System.out.println(random.nextInt(20)+10);
+        }
+        */
+
